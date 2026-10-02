@@ -4,7 +4,19 @@
 <head>
 <link rel="icon" type="image/png" href="{{ url_for('static', filename='logo.png') }}">
 <meta charset="UTF-8">
-
+<img
+    src="{{ url_for('static', filename='logo.png') }}"
+    alt="JARVIS AI Assistant"
+    class="jarvis-logo"
+>
+    .jarvis-logo {
+    width: 180px;
+    max-width: 70vw;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+}
 <meta
     name="viewport"
     content="width=device-width, initial-scale=1.0"
