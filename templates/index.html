@@ -15,7 +15,7 @@
         content="#070b12"
     >
 
-    <!-- JARVIS favicon -->
+    <!-- JARVIS browser tab icon -->
     <link
         rel="icon"
         type="image/png"
@@ -24,68 +24,22 @@
 
     <title>JARVIS AI Assistant</title>
 
+
     <style>
 
         * {
             box-sizing: border-box;
         }
 
+
         html,
         body {
+
             margin: 0;
+
             width: 100%;
+
             min-height: 100%;
-        }
-
-
-        /* =====================================================
-           LOGO
-        ===================================================== */
-
-        .jarvis-logo {
-
-            width: 210px;
-
-            max-width: 75vw;
-
-            height: auto;
-
-            display: block;
-
-            margin:
-                0 auto 18px;
-
-            object-fit: contain;
-
-            border-radius: 20px;
-        }
-
-
-        .top-logo {
-
-            width: 58px;
-
-            height: 58px;
-
-            object-fit: cover;
-
-            object-position: center;
-
-            border-radius: 14px;
-
-            flex-shrink: 0;
-
-            display: block;
-        }
-
-
-        .brand-area {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 12px;
         }
 
 
@@ -133,7 +87,7 @@
 
 
         /* =====================================================
-           TOP
+           TOP BAR
         ===================================================== */
 
         .topbar {
@@ -148,6 +102,41 @@
             gap: 15px;
 
             padding-bottom: 15px;
+        }
+
+
+        /* Logo + JARVIS name */
+
+        .brand-area {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+        }
+
+
+        /*
+            IMPORTANT:
+            This is the small logo beside J.A.R.V.I.S.
+        */
+
+        .top-logo {
+
+            width: 58px;
+
+            height: 58px;
+
+            object-fit: cover;
+
+            object-position: center;
+
+            border-radius: 12px;
+
+            display: block;
+
+            flex-shrink: 0;
         }
 
 
@@ -234,8 +223,7 @@
             margin:
                 0 0 25px;
 
-            opacity:
-                .70;
+            opacity: .70;
         }
 
 
@@ -433,8 +421,7 @@
             background:
                 rgba(255,255,255,.12);
 
-            color:
-                white;
+            color: white;
 
             text-decoration:
                 none;
@@ -519,11 +506,13 @@
         @keyframes pulse {
 
             from {
+
                 transform:
                     scale(1);
             }
 
             to {
+
                 transform:
                     scale(1.12);
             }
@@ -670,9 +659,11 @@
 
             .top-logo {
 
-                width: 48px;
+                width:
+                    48px;
 
-                height: 48px;
+                height:
+                    48px;
             }
 
 
@@ -694,13 +685,6 @@
 
                 padding:
                     28px 20px;
-            }
-
-
-            .jarvis-logo {
-
-                width:
-                    180px;
             }
 
 
@@ -738,51 +722,60 @@
 
     <div class="topbar">
 
+
         <div class="brand-area">
+
+
+            <!-- =================================================
+                 YOUR SMALL JARVIS LOGO
+                 This is beside J.A.R.V.I.S.
+            ================================================== -->
 
             <img
                 src="{{ url_for('static', filename='logo.png') }}"
-                alt="JARVIS AI Assistant"
+                alt="JARVIS"
                 class="top-logo"
+                onerror="this.style.display='none';"
             >
+
 
             <div class="brand">
                 J.A.R.V.I.S.
             </div>
+
 
         </div>
 
 
         <div class="status">
 
+
             <div id="languageStatus">
                 Language not selected
             </div>
+
 
             <div id="istClock">
                 IST --:--:-- --
             </div>
 
+
         </div>
+
 
     </div>
 
 
     <!-- =====================================================
          LANGUAGE SCREEN
+         
+         NO BIG LOGO HERE
     ===================================================== -->
 
     <section id="languageScreen">
 
+
         <div class="language-card">
-
-            <!-- BIG JARVIS LOGO -->
-
-            <img
-                src="{{ url_for('static', filename='logo.png') }}"
-                alt="JARVIS AI Assistant"
-                class="jarvis-logo"
-            >
 
 
             <h1>
@@ -810,7 +803,9 @@
                 2 — Hinglish
             </button>
 
+
         </div>
+
 
     </section>
 
@@ -830,12 +825,13 @@
 
         <!-- =================================================
              YOUTUBE
-        ================================================= -->
+        ================================================== -->
 
         <div
             class="youtube-area"
             id="youtubeArea"
         >
+
 
             <iframe
                 id="youtubePlayer"
@@ -847,14 +843,16 @@
                 allowfullscreen
             ></iframe>
 
+
         </div>
 
 
         <!-- =================================================
              ORB
-        ================================================= -->
+        ================================================== -->
 
         <div class="orb-area">
+
 
             <div
                 class="orb"
@@ -862,12 +860,13 @@
                 onclick="startManualListening()"
             ></div>
 
+
         </div>
 
 
         <!-- =================================================
              INPUT
-        ================================================= -->
+        ================================================== -->
 
         <div class="input-area">
 
@@ -896,7 +895,9 @@
                 ➤
             </button>
 
+
         </div>
+
 
     </section>
 
@@ -949,40 +950,48 @@ const languageScreen =
         "languageScreen"
     );
 
+
 const chatScreen =
     document.getElementById(
         "chatScreen"
     );
+
 
 const chatBox =
     document.getElementById(
         "chatBox"
     );
 
+
 const userInput =
     document.getElementById(
         "userInput"
     );
+
 
 const orb =
     document.getElementById(
         "orb"
     );
 
+
 const languageStatus =
     document.getElementById(
         "languageStatus"
     );
+
 
 const istClock =
     document.getElementById(
         "istClock"
     );
 
+
 const youtubeArea =
     document.getElementById(
         "youtubeArea"
     );
+
 
 const youtubePlayer =
     document.getElementById(
@@ -1006,6 +1015,7 @@ function getISTParts() {
             +
             IST_OFFSET
         );
+
 
     return {
 
@@ -1048,6 +1058,7 @@ function hour12(value) {
     const h =
         value % 12;
 
+
     return h === 0
         ? 12
         : h;
@@ -1067,12 +1078,14 @@ function updateClock() {
     const t =
         getISTParts();
 
+
     istClock.textContent =
         `IST ${pad(hour12(t.hour))}:${pad(t.minute)}:${pad(t.second)} ${ampm(t.hour)}`;
 }
 
 
 updateClock();
+
 
 setInterval(
     updateClock,
@@ -1091,11 +1104,14 @@ function selectLanguage(
     selectedLanguage =
         language;
 
+
     languageScreen.style.display =
         "none";
 
+
     chatScreen.style.display =
         "flex";
+
 
     languageStatus.textContent =
         language === "hinglish"
@@ -1123,6 +1139,7 @@ function selectLanguage(
 
     initializeRecognition();
 
+
     userInput.focus();
 }
 
@@ -1141,6 +1158,7 @@ function addMessage(
             "div"
         );
 
+
     row.className =
         `message-row ${type}`;
 
@@ -1150,8 +1168,10 @@ function addMessage(
             "div"
         );
 
+
     bubble.className =
         `message ${type}`;
+
 
     bubble.textContent =
         text;
@@ -1161,9 +1181,11 @@ function addMessage(
         bubble
     );
 
+
     chatBox.appendChild(
         row
     );
+
 
     chatBox.scrollTop =
         chatBox.scrollHeight;
@@ -1207,6 +1229,7 @@ function removeThinking() {
 
 
     if (!messages.length) {
+
         return;
     }
 
@@ -1219,10 +1242,10 @@ function removeThinking() {
 
     if (
         last.textContent ===
-        "Thinking..."
+            "Thinking..."
         ||
         last.textContent ===
-        "Soch raha hoon..."
+            "Soch raha hoon..."
     ) {
 
         last.parentElement.remove();
@@ -1436,7 +1459,7 @@ function getDateAnswer() {
 
 
 // =====================================================
-// TTS TEXT
+// TTS CLEANING
 // =====================================================
 
 function cleanForSpeech(
@@ -1513,8 +1536,10 @@ function stopTTS() {
 
     ttsGeneration++;
 
+
     ttsSpeaking =
         false;
+
 
     currentSpeechText =
         "";
@@ -1525,9 +1550,12 @@ function stopTTS() {
     ) {
 
         try {
+
             ttsAbortController.abort();
+
         } catch (e) {
         }
+
 
         ttsAbortController =
             null;
@@ -1551,6 +1579,7 @@ function stopTTS() {
         } catch (e) {
         }
 
+
         currentAudio =
             null;
     }
@@ -1563,6 +1592,7 @@ function stopTTS() {
         URL.revokeObjectURL(
             currentAudioUrl
         );
+
 
         currentAudioUrl =
             null;
@@ -1596,12 +1626,14 @@ async function speakText(
 
 
     if (!cleanText) {
+
         return;
     }
 
 
     ttsSpeaking =
         true;
+
 
     currentSpeechText =
         cleanText;
@@ -1638,6 +1670,7 @@ async function speakText(
 
                     body:
                         JSON.stringify({
+
                             text:
                                 cleanText,
 
@@ -1646,8 +1679,7 @@ async function speakText(
                         }),
 
                     signal:
-                        ttsAbortController
-                            .signal
+                        ttsAbortController.signal
                 }
             );
 
@@ -1656,6 +1688,7 @@ async function speakText(
             generation !==
             ttsGeneration
         ) {
+
             return;
         }
 
@@ -1678,6 +1711,7 @@ async function speakText(
             generation !==
             ttsGeneration
         ) {
+
             return;
         }
 
@@ -1696,6 +1730,7 @@ async function speakText(
 
         currentAudio.preload =
             "auto";
+
 
         currentAudio.volume =
             1;
@@ -1738,6 +1773,7 @@ async function speakText(
                 ttsSpeaking =
                     false;
 
+
                 currentSpeechText =
                     "";
 
@@ -1758,6 +1794,7 @@ async function speakText(
                         currentAudioUrl
                     );
 
+
                     currentAudioUrl =
                         null;
                 }
@@ -1774,6 +1811,7 @@ async function speakText(
                 ttsSpeaking =
                     false;
 
+
                 currentSpeechText =
                     "";
 
@@ -1788,7 +1826,6 @@ async function speakText(
 
 
         await currentAudio.play();
-
 
     } catch (error) {
 
@@ -1810,6 +1847,7 @@ async function speakText(
         ttsSpeaking =
             false;
 
+
         currentSpeechText =
             "";
 
@@ -1821,6 +1859,8 @@ async function speakText(
 
         stopBargeListening();
 
+
+        /* Browser fallback */
 
         if (
             "speechSynthesis"
@@ -1849,6 +1889,7 @@ async function speakText(
 
 
                 speechSynthesis.cancel();
+
 
                 speechSynthesis.speak(
                     speech
@@ -1887,6 +1928,7 @@ function startBargeListening() {
 
         recognition.lang =
             "en-IN";
+
 
         recognition.start();
 
@@ -1948,8 +1990,10 @@ function initializeRecognition() {
     recognition.continuous =
         true;
 
+
     recognition.interimResults =
         true;
+
 
     recognition.lang =
         "en-IN";
@@ -1960,6 +2004,7 @@ function initializeRecognition() {
 
             isListening =
                 true;
+
 
             orb.classList.add(
                 "listening"
@@ -1972,6 +2017,7 @@ function initializeRecognition() {
 
             let finalText =
                 "";
+
 
             let interimText =
                 "";
@@ -2024,9 +2070,12 @@ function initializeRecognition() {
             finalText =
                 finalText.trim();
 
+
             interimText =
                 interimText.trim();
 
+
+            /* Barge mode */
 
             if (
                 recognitionMode ===
@@ -2040,6 +2089,7 @@ function initializeRecognition() {
                 ) {
 
                     stopTTS();
+
 
                     userInput.value =
                         interimText
@@ -2057,7 +2107,9 @@ function initializeRecognition() {
 
 
                     try {
+
                         recognition.stop();
+
                     } catch (e) {
                     }
 
@@ -2076,6 +2128,8 @@ function initializeRecognition() {
                 return;
             }
 
+
+            /* Manual mode */
 
             if (
                 recognitionMode ===
@@ -2100,7 +2154,9 @@ function initializeRecognition() {
 
 
                     try {
+
                         recognition.stop();
+
                     } catch (e) {
                     }
 
@@ -2148,7 +2204,9 @@ function initializeRecognition() {
                         ) {
 
                             try {
+
                                 recognition.start();
+
                             } catch (e) {
                             }
                         }
@@ -2210,6 +2268,7 @@ function startManualListening() {
                 "Voice input is not supported in this browser. Chrome or Edge use karo."
             );
 
+
             return;
         }
     }
@@ -2231,6 +2290,7 @@ function startManualListening() {
 
         recognition.lang =
             "en-IN";
+
 
         recognition.start();
 
@@ -2254,6 +2314,7 @@ function isMusicCommand(
 
 
     const actions = [
+
         "play",
         "bajao",
         "baja do",
@@ -2265,6 +2326,7 @@ function isMusicCommand(
 
 
     const music = [
+
         "song",
         "music",
         "gaana",
@@ -2406,6 +2468,7 @@ async function playMusic(
 
                     body:
                         JSON.stringify({
+
                             query:
                                 query
                         })
@@ -2560,7 +2623,7 @@ async function playMusic(
 
 
 // =====================================================
-// SEND
+// SEND MESSAGE
 // =====================================================
 
 async function sendMessage() {
@@ -2570,6 +2633,7 @@ async function sendMessage() {
 
 
     if (!prompt) {
+
         return;
     }
 
@@ -2584,7 +2648,8 @@ async function sendMessage() {
     );
 
 
-    // Music
+    /* Music */
+
     if (
         isMusicCommand(
             prompt
@@ -2595,15 +2660,18 @@ async function sendMessage() {
             prompt
         );
 
+
         return;
     }
 
 
-    // Stop previous voice
+    /* Stop previous voice */
+
     stopTTS();
 
 
-    // Time
+    /* Time */
+
     if (
         isTimeQuestion(
             prompt
@@ -2629,7 +2697,8 @@ async function sendMessage() {
     }
 
 
-    // Date
+    /* Date */
+
     if (
         isDateQuestion(
             prompt
@@ -2655,7 +2724,8 @@ async function sendMessage() {
     }
 
 
-    // AI
+    /* AI */
+
     addThinking();
 
 
@@ -2702,7 +2772,8 @@ async function sendMessage() {
         ) {
 
             throw new Error(
-                data.error ||
+                data.error
+                ||
                 "Server error."
             );
         }
@@ -2751,7 +2822,7 @@ async function sendMessage() {
 
 
 // =====================================================
-// ENTER
+// ENTER KEY
 // =====================================================
 
 function handleKey(
@@ -2769,6 +2840,7 @@ function handleKey(
 }
 
 </script>
+
 
 </body>
 
