@@ -2,624 +2,726 @@
 <html lang="en">
 
 <head>
-<link rel="icon" type="image/png" href="{{ url_for('static', filename='logo.png') }}">
-<meta charset="UTF-8">
-<img
-    src="{{ url_for('static', filename='logo.png') }}"
-    alt="JARVIS AI Assistant"
-    class="jarvis-logo"
->
-    .jarvis-logo {
-    width: 180px;
-    max-width: 70vw;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    object-fit: contain;
-}
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
 
-<meta
-    name="theme-color"
-    content="#070b12"
->
+    <meta charset="UTF-8">
 
-<title>JARVIS</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-<style>
+    <meta
+        name="theme-color"
+        content="#070b12"
+    >
 
-* {
-    box-sizing: border-box;
-}
+    <!-- JARVIS favicon -->
+    <link
+        rel="icon"
+        type="image/png"
+        href="{{ url_for('static', filename='logo.png') }}"
+    >
 
-html,
-body {
-    margin: 0;
-    width: 100%;
-    min-height: 100%;
-}
+    <title>JARVIS AI Assistant</title>
 
-body {
+    <style>
 
-    min-height: 100vh;
+        * {
+            box-sizing: border-box;
+        }
 
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+        html,
+        body {
+            margin: 0;
+            width: 100%;
+            min-height: 100%;
+        }
 
-    background:
-        radial-gradient(
-            circle at top,
-            #18243b 0%,
-            #070b12 48%,
-            #030509 100%
-        );
 
-    color: white;
+        /* =====================================================
+           LOGO
+        ===================================================== */
 
-    display: flex;
+        .jarvis-logo {
 
-    justify-content: center;
+            width: 210px;
 
-    align-items: center;
-}
+            max-width: 75vw;
 
-.app {
+            height: auto;
 
-    width:
-        min(1000px, 95vw);
+            display: block;
 
-    min-height:
-        95vh;
+            margin:
+                0 auto 18px;
 
-    display: flex;
+            object-fit: contain;
 
-    flex-direction: column;
+            border-radius: 20px;
+        }
 
-    padding: 18px;
-}
 
+        .top-logo {
 
-/* =====================================================
-   TOP
-===================================================== */
+            width: 58px;
 
-.topbar {
+            height: 58px;
 
-    display: flex;
+            object-fit: cover;
 
-    justify-content:
-        space-between;
+            object-position: center;
 
-    align-items: center;
+            border-radius: 14px;
 
-    gap: 15px;
+            flex-shrink: 0;
 
-    padding-bottom: 15px;
-}
+            display: block;
+        }
 
-.brand {
 
-    font-size: 28px;
+        .brand-area {
 
-    font-weight: 800;
+            display: flex;
 
-    letter-spacing: 3px;
-}
+            align-items: center;
 
-.status {
+            gap: 12px;
+        }
 
-    text-align: right;
 
-    font-size: 13px;
+        body {
 
-    opacity: .75;
-}
+            min-height: 100vh;
 
-.clock {
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
 
-    margin-top: 5px;
+            background:
+                radial-gradient(
+                    circle at top,
+                    #18243b 0%,
+                    #070b12 48%,
+                    #030509 100%
+                );
 
-    font-size: 15px;
+            color: white;
 
-    font-weight: 700;
-}
+            display: flex;
 
+            justify-content: center;
 
-/* =====================================================
-   LANGUAGE
-===================================================== */
+            align-items: center;
+        }
 
-#languageScreen {
 
-    flex: 1;
+        .app {
 
-    display: flex;
+            width:
+                min(1000px, 95vw);
 
-    justify-content: center;
+            min-height:
+                95vh;
 
-    align-items: center;
-}
+            display: flex;
 
-.language-card {
+            flex-direction: column;
 
-    width:
-        min(470px, 94vw);
+            padding: 18px;
+        }
 
-    padding: 35px;
 
-    border-radius: 26px;
+        /* =====================================================
+           TOP
+        ===================================================== */
 
-    background:
-        rgba(255,255,255,.06);
+        .topbar {
 
-    border:
-        1px solid
-        rgba(255,255,255,.10);
+            display: flex;
 
-    backdrop-filter:
-        blur(20px);
+            justify-content:
+                space-between;
 
-    text-align: center;
-}
+            align-items: center;
 
-.language-card h1 {
+            gap: 15px;
 
-    margin:
-        0 0 10px;
+            padding-bottom: 15px;
+        }
 
-    font-size: 34px;
-}
 
-.language-card p {
+        .brand {
 
-    margin:
-        0 0 25px;
+            font-size: 28px;
 
-    opacity:
-        .70;
-}
+            font-weight: 800;
 
-.lang-button {
+            letter-spacing: 3px;
+        }
 
-    width: 100%;
 
-    margin-top: 12px;
+        .status {
 
-    padding:
-        17px 20px;
+            text-align: right;
 
-    border: 0;
+            font-size: 13px;
 
-    border-radius: 16px;
+            opacity: .75;
+        }
 
-    background:
-        rgba(255,255,255,.10);
 
-    color: white;
+        .clock {
 
-    font-size: 17px;
+            margin-top: 5px;
 
-    font-weight: 700;
+            font-size: 15px;
 
-    cursor: pointer;
-}
+            font-weight: 700;
+        }
 
-.lang-button:hover {
 
-    background:
-        rgba(255,255,255,.19);
-}
+        /* =====================================================
+           LANGUAGE
+        ===================================================== */
 
+        #languageScreen {
 
-/* =====================================================
-   CHAT
-===================================================== */
+            flex: 1;
 
-#chatScreen {
+            display: flex;
 
-    display: none;
+            justify-content: center;
 
-    flex: 1;
+            align-items: center;
+        }
 
-    flex-direction: column;
 
-    min-height: 0;
-}
+        .language-card {
 
-.chat-box {
+            width:
+                min(470px, 94vw);
 
-    flex: 1;
+            padding: 35px;
 
-    min-height: 0;
+            border-radius: 26px;
 
-    overflow-y: auto;
+            background:
+                rgba(255,255,255,.06);
 
-    padding:
-        5px 2px 20px;
-}
+            border:
+                1px solid
+                rgba(255,255,255,.10);
 
-.message-row {
+            backdrop-filter:
+                blur(20px);
 
-    display: flex;
+            text-align: center;
+        }
 
-    margin:
-        12px 0;
-}
 
-.message-row.user {
+        .language-card h1 {
 
-    justify-content:
-        flex-end;
-}
+            margin:
+                0 0 10px;
 
-.message-row.jarvis {
+            font-size: 34px;
+        }
 
-    justify-content:
-        flex-start;
-}
 
-.message {
+        .language-card p {
 
-    max-width:
-        min(760px, 88%);
+            margin:
+                0 0 25px;
 
-    padding:
-        14px 17px;
+            opacity:
+                .70;
+        }
 
-    border-radius: 18px;
 
-    line-height: 1.55;
+        .lang-button {
 
-    white-space:
-        pre-wrap;
+            width: 100%;
 
-    overflow-wrap:
-        anywhere;
-}
+            margin-top: 12px;
 
-.message.user {
+            padding:
+                17px 20px;
 
-    background:
-        #2667ff;
-}
+            border: 0;
 
-.message.jarvis {
+            border-radius: 16px;
 
-    background:
-        rgba(255,255,255,.08);
+            background:
+                rgba(255,255,255,.10);
 
-    border:
-        1px solid
-        rgba(255,255,255,.08);
-}
+            color: white;
 
-.thinking {
+            font-size: 17px;
 
-    opacity:
-        .60;
+            font-weight: 700;
 
-    font-style:
-        italic;
-}
+            cursor: pointer;
 
+            transition:
+                background .2s,
+                transform .15s;
+        }
 
-/* =====================================================
-   YOUTUBE
-===================================================== */
 
-.youtube-area {
+        .lang-button:hover {
 
-    display: none;
+            background:
+                rgba(255,255,255,.19);
 
-    width:
-        min(760px, 100%);
+            transform:
+                translateY(-1px);
+        }
 
-    margin:
-        5px auto 15px;
 
-    border-radius:
-        18px;
+        /* =====================================================
+           CHAT
+        ===================================================== */
 
-    overflow:
-        hidden;
+        #chatScreen {
 
-    background:
-        black;
-}
+            display: none;
 
-.youtube-area iframe {
+            flex: 1;
 
-    display: block;
+            flex-direction: column;
 
-    width: 100%;
+            min-height: 0;
+        }
 
-    aspect-ratio:
-        16 / 9;
 
-    border: 0;
-}
+        .chat-box {
 
-.youtube-link {
+            flex: 1;
 
-    display: inline-block;
+            min-height: 0;
 
-    margin-top:
-        10px;
+            overflow-y: auto;
 
-    padding:
-        10px 14px;
+            padding:
+                5px 2px 20px;
+        }
 
-    border-radius:
-        10px;
 
-    background:
-        rgba(255,255,255,.12);
+        .message-row {
 
-    color:
-        white;
+            display: flex;
 
-    text-decoration:
-        none;
-}
+            margin:
+                12px 0;
+        }
 
 
-/* =====================================================
-   ORB
-===================================================== */
+        .message-row.user {
 
-.orb-area {
+            justify-content:
+                flex-end;
+        }
 
-    display: flex;
 
-    justify-content:
-        center;
+        .message-row.jarvis {
 
-    align-items:
-        center;
+            justify-content:
+                flex-start;
+        }
 
-    padding:
-        12px 0 17px;
-}
 
-.orb {
+        .message {
 
-    width:
-        100px;
+            max-width:
+                min(760px, 88%);
 
-    height:
-        100px;
+            padding:
+                14px 17px;
 
-    border-radius:
-        50%;
+            border-radius: 18px;
 
-    background:
-        radial-gradient(
-            circle at 30% 30%,
-            #ffffff,
-            #70a7ff 18%,
-            #2465ff 50%,
-            #10204a 72%,
-            #050912 100%
-        );
+            line-height: 1.55;
 
-    box-shadow:
-        0 0 25px
-        rgba(80,140,255,.80),
+            white-space:
+                pre-wrap;
 
-        0 0 75px
-        rgba(50,100,255,.40);
+            overflow-wrap:
+                anywhere;
+        }
 
-    cursor:
-        pointer;
 
-    transition:
-        transform .15s,
-        box-shadow .15s;
-}
+        .message.user {
 
-.orb.listening {
+            background:
+                #2667ff;
+        }
 
-    animation:
-        pulse .65s infinite
-        alternate;
-}
 
-.orb.speaking {
+        .message.jarvis {
 
-    box-shadow:
-        0 0 30px
-        rgba(90,160,255,.95),
+            background:
+                rgba(255,255,255,.08);
 
-        0 0 100px
-        rgba(50,100,255,.65);
-}
+            border:
+                1px solid
+                rgba(255,255,255,.08);
+        }
 
-@keyframes pulse {
 
-    from {
-        transform:
-            scale(1);
-    }
+        .thinking {
 
-    to {
-        transform:
-            scale(1.12);
-    }
-}
+            opacity:
+                .60;
 
+            font-style:
+                italic;
+        }
 
-/* =====================================================
-   INPUT
-===================================================== */
 
-.input-area {
+        /* =====================================================
+           YOUTUBE
+        ===================================================== */
 
-    display: flex;
+        .youtube-area {
 
-    gap: 10px;
+            display: none;
 
-    align-items:
-        center;
-}
+            width:
+                min(760px, 100%);
 
-#userInput {
+            margin:
+                5px auto 15px;
 
-    flex: 1;
+            border-radius:
+                18px;
 
-    min-width: 0;
+            overflow:
+                hidden;
 
-    padding:
-        16px 18px;
+            background:
+                black;
+        }
 
-    border-radius:
-        16px;
 
-    border:
-        1px solid
-        rgba(255,255,255,.10);
+        .youtube-area iframe {
 
-    background:
-        rgba(255,255,255,.06);
+            display: block;
 
-    color:
-        white;
+            width: 100%;
 
-    font-size:
-        16px;
+            aspect-ratio:
+                16 / 9;
 
-    outline:
-        none;
-}
+            border: 0;
+        }
 
-#userInput::placeholder {
 
-    color:
-        rgba(255,255,255,.45);
-}
+        .youtube-link {
 
-.mic-button,
-.send-button {
+            display: inline-block;
 
-    width:
-        54px;
+            margin-top:
+                10px;
 
-    height:
-        54px;
+            padding:
+                10px 14px;
 
-    flex-shrink:
-        0;
+            border-radius:
+                10px;
 
-    border:
-        0;
+            background:
+                rgba(255,255,255,.12);
 
-    border-radius:
-        16px;
+            color:
+                white;
 
-    background:
-        rgba(255,255,255,.10);
+            text-decoration:
+                none;
+        }
 
-    color:
-        white;
 
-    cursor:
-        pointer;
+        /* =====================================================
+           ORB
+        ===================================================== */
 
-    font-size:
-        20px;
-}
+        .orb-area {
 
-.mic-button:hover,
-.send-button:hover {
+            display: flex;
 
-    background:
-        rgba(255,255,255,.18);
-}
+            justify-content:
+                center;
 
+            align-items:
+                center;
 
-/* =====================================================
-   FOOTER
-===================================================== */
+            padding:
+                12px 0 17px;
+        }
 
-.footer {
 
-    text-align:
-        center;
+        .orb {
 
-    margin-top:
-        8px;
+            width:
+                100px;
 
-    font-size:
-        10px;
+            height:
+                100px;
 
-    opacity:
-        .35;
-}
+            border-radius:
+                50%;
 
+            background:
+                radial-gradient(
+                    circle at 30% 30%,
+                    #ffffff,
+                    #70a7ff 18%,
+                    #2465ff 50%,
+                    #10204a 72%,
+                    #050912 100%
+                );
 
-/* =====================================================
-   MOBILE
-===================================================== */
+            box-shadow:
+                0 0 25px
+                rgba(80,140,255,.80),
 
-@media(max-width:650px) {
+                0 0 75px
+                rgba(50,100,255,.40);
 
-    .app {
+            cursor:
+                pointer;
 
-        width:
-            100vw;
+            transition:
+                transform .15s,
+                box-shadow .15s;
+        }
 
-        min-height:
-            100vh;
 
-        padding:
-            12px;
-    }
+        .orb.listening {
 
-    .brand {
+            animation:
+                pulse .65s infinite
+                alternate;
+        }
 
-        font-size:
-            21px;
-    }
 
-    .status {
+        .orb.speaking {
 
-        font-size:
-            11px;
-    }
+            box-shadow:
+                0 0 30px
+                rgba(90,160,255,.95),
 
-    .clock {
+                0 0 100px
+                rgba(50,100,255,.65);
+        }
 
-        font-size:
-            13px;
-    }
 
-    .language-card {
+        @keyframes pulse {
 
-        padding:
-            28px 20px;
-    }
+            from {
+                transform:
+                    scale(1);
+            }
 
-    .message {
+            to {
+                transform:
+                    scale(1.12);
+            }
+        }
 
-        max-width:
-            94%;
-    }
 
-    .orb {
+        /* =====================================================
+           INPUT
+        ===================================================== */
 
-        width:
-            86px;
+        .input-area {
 
-        height:
-            86px;
-    }
-}
+            display: flex;
 
-</style>
+            gap: 10px;
+
+            align-items:
+                center;
+        }
+
+
+        #userInput {
+
+            flex: 1;
+
+            min-width: 0;
+
+            padding:
+                16px 18px;
+
+            border-radius:
+                16px;
+
+            border:
+                1px solid
+                rgba(255,255,255,.10);
+
+            background:
+                rgba(255,255,255,.06);
+
+            color:
+                white;
+
+            font-size:
+                16px;
+
+            outline:
+                none;
+        }
+
+
+        #userInput::placeholder {
+
+            color:
+                rgba(255,255,255,.45);
+        }
+
+
+        .mic-button,
+        .send-button {
+
+            width:
+                54px;
+
+            height:
+                54px;
+
+            flex-shrink:
+                0;
+
+            border:
+                0;
+
+            border-radius:
+                16px;
+
+            background:
+                rgba(255,255,255,.10);
+
+            color:
+                white;
+
+            cursor:
+                pointer;
+
+            font-size:
+                20px;
+        }
+
+
+        .mic-button:hover,
+        .send-button:hover {
+
+            background:
+                rgba(255,255,255,.18);
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        .footer {
+
+            text-align:
+                center;
+
+            margin-top:
+                8px;
+
+            font-size:
+                10px;
+
+            opacity:
+                .35;
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media(max-width:650px) {
+
+            .app {
+
+                width:
+                    100vw;
+
+                min-height:
+                    100vh;
+
+                padding:
+                    12px;
+            }
+
+
+            .brand {
+
+                font-size:
+                    21px;
+            }
+
+
+            .top-logo {
+
+                width: 48px;
+
+                height: 48px;
+            }
+
+
+            .status {
+
+                font-size:
+                    11px;
+            }
+
+
+            .clock {
+
+                font-size:
+                    13px;
+            }
+
+
+            .language-card {
+
+                padding:
+                    28px 20px;
+            }
+
+
+            .jarvis-logo {
+
+                width:
+                    180px;
+            }
+
+
+            .message {
+
+                max-width:
+                    94%;
+            }
+
+
+            .orb {
+
+                width:
+                    86px;
+
+                height:
+                    86px;
+            }
+        }
+
+    </style>
 
 </head>
 
@@ -630,152 +732,178 @@ body {
 <div class="app">
 
 
-<!-- =====================================================
-     TOP BAR
-===================================================== -->
+    <!-- =====================================================
+         TOP BAR
+    ===================================================== -->
 
-<div class="topbar">
+    <div class="topbar">
 
-    <div class="brand">
-        J.A.R.V.I.S.
-    </div>
+        <div class="brand-area">
 
+            <img
+                src="{{ url_for('static', filename='logo.png') }}"
+                alt="JARVIS AI Assistant"
+                class="top-logo"
+            >
 
-    <div class="status">
+            <div class="brand">
+                J.A.R.V.I.S.
+            </div>
 
-        <div id="languageStatus">
-            Language not selected
         </div>
 
-        <div id="istClock">
-            IST --:--:-- --
+
+        <div class="status">
+
+            <div id="languageStatus">
+                Language not selected
+            </div>
+
+            <div id="istClock">
+                IST --:--:-- --
+            </div>
+
         </div>
 
     </div>
 
-</div>
+
+    <!-- =====================================================
+         LANGUAGE SCREEN
+    ===================================================== -->
+
+    <section id="languageScreen">
+
+        <div class="language-card">
+
+            <!-- BIG JARVIS LOGO -->
+
+            <img
+                src="{{ url_for('static', filename='logo.png') }}"
+                alt="JARVIS AI Assistant"
+                class="jarvis-logo"
+            >
 
 
-<!-- =====================================================
-     LANGUAGE SCREEN
-===================================================== -->
-
-<section id="languageScreen">
-
-    <div class="language-card">
-
-        <h1>
-            Welcome to JARVIS
-        </h1>
-
-        <p>
-            Select your conversation language
-        </p>
+            <h1>
+                Welcome to JARVIS
+            </h1>
 
 
-        <button
-            class="lang-button"
-            onclick="selectLanguage('english')"
-        >
-            1 — English
-        </button>
+            <p>
+                Select your conversation language
+            </p>
 
 
-        <button
-            class="lang-button"
-            onclick="selectLanguage('hinglish')"
-        >
-            2 — Hinglish
-        </button>
-
-    </div>
-
-</section>
+            <button
+                class="lang-button"
+                onclick="selectLanguage('english')"
+            >
+                1 — English
+            </button>
 
 
-<!-- =====================================================
-     CHAT
-===================================================== -->
+            <button
+                class="lang-button"
+                onclick="selectLanguage('hinglish')"
+            >
+                2 — Hinglish
+            </button>
 
-<section id="chatScreen">
+        </div>
 
-
-    <div
-        class="chat-box"
-        id="chatBox"
-    ></div>
-
-
-    <!-- YouTube -->
-
-    <div
-        class="youtube-area"
-        id="youtubeArea"
-    >
-
-        <iframe
-            id="youtubePlayer"
-            allow="
-                autoplay;
-                encrypted-media;
-                picture-in-picture
-            "
-            allowfullscreen
-        ></iframe>
-
-    </div>
+    </section>
 
 
-    <!-- Orb -->
+    <!-- =====================================================
+         CHAT
+    ===================================================== -->
 
-    <div class="orb-area">
+    <section id="chatScreen">
+
 
         <div
-            class="orb"
-            id="orb"
-            onclick="startManualListening()"
+            class="chat-box"
+            id="chatBox"
         ></div>
 
+
+        <!-- =================================================
+             YOUTUBE
+        ================================================= -->
+
+        <div
+            class="youtube-area"
+            id="youtubeArea"
+        >
+
+            <iframe
+                id="youtubePlayer"
+                allow="
+                    autoplay;
+                    encrypted-media;
+                    picture-in-picture
+                "
+                allowfullscreen
+            ></iframe>
+
+        </div>
+
+
+        <!-- =================================================
+             ORB
+        ================================================= -->
+
+        <div class="orb-area">
+
+            <div
+                class="orb"
+                id="orb"
+                onclick="startManualListening()"
+            ></div>
+
+        </div>
+
+
+        <!-- =================================================
+             INPUT
+        ================================================= -->
+
+        <div class="input-area">
+
+
+            <button
+                class="mic-button"
+                onclick="startManualListening()"
+            >
+                🎤
+            </button>
+
+
+            <input
+                id="userInput"
+                type="text"
+                autocomplete="off"
+                placeholder="Type your message..."
+                onkeydown="handleKey(event)"
+            >
+
+
+            <button
+                class="send-button"
+                onclick="sendMessage()"
+            >
+                ➤
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <div class="footer">
+        JARVIS Web Assistant
     </div>
-
-
-    <!-- Input -->
-
-    <div class="input-area">
-
-
-        <button
-            class="mic-button"
-            onclick="startManualListening()"
-        >
-            🎤
-        </button>
-
-
-        <input
-            id="userInput"
-            type="text"
-            autocomplete="off"
-            placeholder="Type your message..."
-            onkeydown="handleKey(event)"
-        >
-
-
-        <button
-            class="send-button"
-            onclick="sendMessage()"
-        >
-            ➤
-        </button>
-
-    </div>
-
-</section>
-
-
-<div class="footer">
-    JARVIS Web Assistant
-</div>
 
 
 </div>
@@ -1585,12 +1713,6 @@ async function speakText(
                 );
 
 
-                /*
-                    Enable interruption after a short
-                    delay so JARVIS doesn't immediately
-                    hear its own opening words.
-                */
-
                 setTimeout(
                     function() {
 
@@ -1699,10 +1821,6 @@ async function speakText(
 
         stopBargeListening();
 
-
-        /*
-            Browser fallback
-        */
 
         if (
             "speechSynthesis"
@@ -1910,11 +2028,6 @@ function initializeRecognition() {
                 interimText.trim();
 
 
-            /*
-                While JARVIS is talking:
-                any recognized user speech stops it.
-            */
-
             if (
                 recognitionMode ===
                 "barge"
@@ -1963,10 +2076,6 @@ function initializeRecognition() {
                 return;
             }
 
-
-            /*
-                Normal microphone mode
-            */
 
             if (
                 recognitionMode ===
@@ -2604,11 +2713,6 @@ async function sendMessage() {
             data.answer
         );
 
-
-        /*
-            The complete answer is sent
-            to the server as ONE TTS request.
-        */
 
         speakText(
             data.answer
